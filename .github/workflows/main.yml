@@ -22,5 +22,5 @@ jobs:
       uses: jenkins-actions/jenkins-action@v1
       with:
         url: http://3.138.122.101:8080
-        job: my-project
-        token: ${{ secrets.JENKINS_TOKEN }}
+        job: git integration
+        token: ${{ secrets.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 }}
