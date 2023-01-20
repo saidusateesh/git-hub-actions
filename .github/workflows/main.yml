@@ -23,4 +23,4 @@ jobs:
       with:
         url: http://3.138.122.101:8080
         job: git integration
-        token: ${{ secrets.JENKINS_TOKEN }}
+        token: ${{ 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 }}
