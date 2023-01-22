@@ -21,6 +21,7 @@ jobs:
       if: success()
       uses: jenkins-actions/jenkins-action@v1
       with:
-        url: http://3.138.122.101:8080
+        url: http://52.14.62.107:8080
         job: git integration
-        token: ${{ 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 }}
+        token: ${{ secrets.JENKINS }}
+
