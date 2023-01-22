@@ -23,5 +23,5 @@ jobs:
       with:
         url: http://52.14.62.107:8080
         job: git integration
-        token: ${{ secrets.JENKINS }}
+        token: ${{ secrets.JENKINSTOKEN }}
 
