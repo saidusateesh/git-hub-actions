@@ -1,26 +1,13 @@
-name: CI/CD
-
-on:
-  push:
-    branches:
-      - main
-
+name: Jenkins Integration
+ 
+on: [push]
+ 
 jobs:
   build:
     runs-on: ubuntu-latest
-
+ 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
-    - name: Run tests
-      run: |
-        # run tests here
-
-    - name: Trigger Jenkins job
-      if: success()
-      with:
-        url: http://52.14.62.107:8080
-        job: git integration
-        token: ${{ secrets.JENKINSTOKEN }}
-
+    - name: Trigger Jenkins Job
+      run: curl -X POST http://52.14.62.107:8080/job/git%20integration/ --user admin:${{ secrets.JENKINSTOKEN }}
