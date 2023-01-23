@@ -1,13 +1,24 @@
-name: Jenkins Integration
- 
-on: [push]
- 
+name: Github Actions Example
+
+on:
+  pull_request:
+  push:
+    branches: 
+      - master
+      - develop
+
 jobs:
-  build:
+  test:
+    name: Running Units Tests
     runs-on: ubuntu-latest
- 
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Trigger Jenkins Job
-      run:  http://52.14.62.107:8080/job/git integration/ --user admin:${{ secrets.JENKINSTOKEN }}
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install
+      run: npm install
+    - name: Test
+      run: npm test
